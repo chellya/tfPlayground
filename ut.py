@@ -1,4 +1,8 @@
+import tensorflow as tf
+import numpy as np
 from IPython.display import clear_output, Image, display, HTML
+import webbrowser, os
+import importlib
 
 def strip_consts(graph_def, max_const_size=32):
     """Strip large constant values from graph_def."""
@@ -13,7 +17,7 @@ def strip_consts(graph_def, max_const_size=32):
                 tensor.tensor_content = "<stripped %d bytes>"%size
     return strip_def
 
-def show_graph_def(graph_def, max_const_size=32):
+def show_graph_def(graph_def,save_file=False, max_const_size=32):
     """Visualize TensorFlow graph."""
     if hasattr(graph_def, 'as_graph_def'):
         graph_def = graph_def.as_graph_def()
@@ -33,9 +37,25 @@ def show_graph_def(graph_def, max_const_size=32):
     iframe = """
         <iframe seamless style="width:1200px;height:620px;border:0" srcdoc="{}"></iframe>
     """.format(code.replace('"', '&quot;'))
-    display(HTML(iframe))
 
+    if save_file:
+        with open('tf_graph.html', 'w') as f:
+            f.write(HTML(iframe).data)
+    else:
+        display(HTML(iframe))
+
+''' For Jupyter Notebook'''
 def show_graph(graph=None):
     if graph is None:
         graph = tf.get_default_graph()
-    show_graph(graph.as_graph_def())
+    show_graph_def(graph)
+
+''' For none-Jupyter scenarios'''
+def show_graph_local(graph=None):
+    if graph is None:
+        graph = tf.get_default_graph()
+    show_graph_def(graph,save_file=True)
+    webbrowser.open('file://' + os.path.realpath('tf_graph.html'))
+
+print("sss")
+v = 3

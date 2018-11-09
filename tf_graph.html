@@ -1,0 +1,13 @@
+
+        <iframe seamless style="width:1200px;height:620px;border:0" srcdoc="
+        <script>
+          function load() {
+            document.getElementById(&quot;graph0.8119568010839187&quot;).pbtxt = 'node {\n  name: &quot;Const&quot;\n  op: &quot;Const&quot;\n  attr {\n    key: &quot;dtype&quot;\n    value {\n      type: DT_INT32\n    }\n  }\n  attr {\n    key: &quot;value&quot;\n    value {\n      tensor {\n        dtype: DT_INT32\n        tensor_shape {\n        }\n        int_val: 2\n      }\n    }\n  }\n}\nnode {\n  name: &quot;Const_1&quot;\n  op: &quot;Const&quot;\n  attr {\n    key: &quot;dtype&quot;\n    value {\n      type: DT_INT32\n    }\n  }\n  attr {\n    key: &quot;value&quot;\n    value {\n      tensor {\n        dtype: DT_INT32\n        tensor_shape {\n          dim {\n            size: 2\n          }\n        }\n        tensor_content: &quot;\\003\\000\\000\\000\\004\\000\\000\\000&quot;\n      }\n    }\n  }\n}\nnode {\n  name: &quot;add&quot;\n  op: &quot;Add&quot;\n  input: &quot;Const&quot;\n  input: &quot;Const_1&quot;\n  attr {\n    key: &quot;T&quot;\n    value {\n      type: DT_INT32\n    }\n  }\n}\nnode {\n  name: &quot;mul&quot;\n  op: &quot;Mul&quot;\n  input: &quot;Const&quot;\n  input: &quot;add&quot;\n  attr {\n    key: &quot;T&quot;\n    value {\n      type: DT_INT32\n    }\n  }\n}\n';
+          }
+        </script>
+        <link rel=&quot;import&quot; href=&quot;https://tensorboard.appspot.com/tf-graph-basic.build.html&quot; onload=load()>
+        <div style=&quot;height:600px&quot;>
+          <tf-graph-basic id=&quot;graph0.8119568010839187&quot;></tf-graph-basic>
+        </div>
+    "></iframe>
+    
