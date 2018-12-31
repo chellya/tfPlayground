@@ -56,6 +56,3 @@ def show_graph_local(graph=None):
         graph = tf.get_default_graph()
     show_graph_def(graph,save_file=True)
     webbrowser.open('file://' + os.path.realpath('tf_graph.html'))
-
-print("sss")
-v = 3
