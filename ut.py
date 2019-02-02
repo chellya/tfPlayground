@@ -3,6 +3,12 @@ import numpy as np
 from IPython.display import clear_output, Image, display, HTML
 import webbrowser, os
 import importlib
+import pandas as pd
+from pandas import DataFrame
+
+def print_df(df,max_row = 500,max_cols = 100):
+    with pd.option_context('display.max_rows', max_row, 'display.max_columns', max_cols):
+        display(df)
 
 def strip_consts(graph_def, max_const_size=32):
     """Strip large constant values from graph_def."""
